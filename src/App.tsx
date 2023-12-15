@@ -1,15 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
-
-import './App.css';
-
 import { Navbar } from './components/Navbar/Navbar';
 import { Home } from './components/Home/Home';
 import { DisplayCards } from './components/DisplayCards/DisplayCards';
 import { DisplayAndEditCard } from './components/DisplayAndEditCard/DisplayAndEditCard';
-import { Create } from './components/Create/Create';
+import { Create } from './components/CreateDriver/Create';
 import { About } from './components/About/About';
-
 
 const App = () => {
   return (

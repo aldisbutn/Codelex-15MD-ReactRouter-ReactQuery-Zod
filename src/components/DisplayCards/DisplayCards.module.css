@@ -2,39 +2,31 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(170, 170, 232);
   background-color: rgb(10, 10, 37);
 }
 
-.heading-1,
-.heading-2,
-.heading-3 {
-  color: rgb(32, 35, 60);
-  margin: 0;
-}
-
-.heading-main {
+.headingMain {
   margin: 0;
   font-size: 22px;
   color: rgb(62, 70, 120);
 }
 
-.heading-1 {
+.heading1 {
   font-size: 24px;
 }
 
-.heading-2 {
+.heading2 {
   font-size: 18px;
 }
 
-.heading-3 {
+.heading3 {
   font-size: 14px;
 }
 
-.photo-wrapper {
+.photoWrapper {
   width: 100%;
   height: 100%;
   max-width: 300px;
@@ -51,9 +43,10 @@
   max-width: 300px;
 }
 
-.driver-wrapper {
+.driverWrapper {
   width: 100%;
   height: 100%;
+  padding-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -62,14 +55,14 @@
   margin-left: auto;
 }
 
-.driver-item__wrapper {
+.driverItemWrapper {
   max-width: 500px;
   max-height: 800px;
   display: flex;
   justify-content: center;
 }
 
-.driver-item {
+.driverItem {
   width: 100%;
   height: 100%;
   min-width: 300px;
@@ -87,18 +80,3 @@
   justify-content: space-around;
 }
 
-.button__wrapper {
-  display: flex;
-  gap: 10px;
-}
-
-.edit-form__wrapper {
-  width: 100%;
-  margin-top: 295px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 100px;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-}
