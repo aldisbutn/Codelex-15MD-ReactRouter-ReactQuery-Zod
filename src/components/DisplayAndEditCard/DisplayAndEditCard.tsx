@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { formatDistanceToNow } from 'date-fns';
 import axios from 'axios';
 
 import { Driver } from '../CreateDriver/Create';
@@ -94,7 +95,7 @@ export const DisplayAndEditCard = () => {
               <h3 className={Style.heading2}>{data[0].teamName}</h3>
               <hr />
               <h2 className={Style.heading3}>Joined the Site</h2>
-              <p className={Style.heading2}>{data[0].createdAt}</p>
+              <p className={Style.heading2}>{formatDistanceToNow(new Date(data[0].createdAt))} ago</p>
             </div>
             <div className={Style.buttonWrapper}>
               <button onClick={() => setDriver(data[0])}>Edit</button>
