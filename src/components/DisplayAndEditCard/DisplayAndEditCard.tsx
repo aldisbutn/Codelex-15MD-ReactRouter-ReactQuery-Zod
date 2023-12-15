@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Driver } from '../CreateDriver/Create';
 import { useState } from 'react';
 
+import Style from './DisplayAndEditCard.module.css'
+
 export const DisplayAndEditCard = () => {
   const { id } = useParams();
   const [driverName, setDriverName] = useState('');
@@ -68,33 +70,33 @@ export const DisplayAndEditCard = () => {
   });
 
   return (
-    <div className='driver-wrapper'>
+    <div className={Style.driverWrapper}>
       {isPending && <h2>Loading...</h2>}
       {error && <h2>Error: {error.message}</h2>}
       {driverDeleted && <h2>Driver deleted successfully!</h2>}
       {data && !driverDeleted && !driverEdit && (
-        <div className='driver-item__wrapper'>
-          <div className='driver-item'>
-            <div className='photo-wrapper'>
-              <img src={data[0].photoURL} className='photoURL' alt={data[0].driverName} />
+        <div className={Style.driverItemWrapper}>
+          <div className={Style.driverItem}>
+            <div className={Style.photoWrapper}>
+              <img src={data[0].photoURL} className={Style.photoURL} alt={data[0].driverName} />
             </div>
-            <div className='driver-info__wrapper'>
-              <h2 className='heading-main'>Driver Name</h2>
-              <h3 className='heading-1'>{data[0].driverName}</h3>
+            <div className={Style.driverInfoWrapper}>
+              <h2 className={Style.headingMain}>Driver Name</h2>
+              <h3 className={Style.heading1}>{data[0].driverName}</h3>
               <hr />
-              <h2 className='heading-3'>Races Won</h2>
-              <h3 className='heading-2'>{data[0].racesWon}</h3>
+              <h2 className={Style.heading3}>Races Won</h2>
+              <h3 className={Style.heading2}>{data[0].racesWon}</h3>
               <hr />
-              <h2 className='heading-3'>Favorite Track</h2>
-              <h3 className='heading-2'>{data[0].favTrack}</h3>
+              <h2 className={Style.heading3}>Favorite Track</h2>
+              <h3 className={Style.heading2}>{data[0].favTrack}</h3>
               <hr />
-              <h2 className='heading-3'>Racing Team</h2>
-              <h3 className='heading-2'>{data[0].teamName}</h3>
+              <h2 className={Style.heading3}>Racing Team</h2>
+              <h3 className={Style.heading2}>{data[0].teamName}</h3>
               <hr />
-              <h2 className='heading-3'>Joined the Site</h2>
-              <p className='heading-2'>{data[0].createdAt}</p>
+              <h2 className={Style.heading3}>Joined the Site</h2>
+              <p className={Style.heading2}>{data[0].createdAt}</p>
             </div>
-            <div className='button__wrapper'>
+            <div className={Style.buttonWrapper}>
               <button onClick={() => setDriver(data[0])}>Edit</button>
               <button onClick={() => deleteDriver.mutate()}>Delete</button>
             </div>
@@ -102,9 +104,9 @@ export const DisplayAndEditCard = () => {
         </div>
       )}
       {driverEdit && (
-        <div className='driver-item__wrapper'>
-          <div className='driver-item'>
-            <div className='edit-form__wrapper'>
+        <div className={Style.driverItemWrapper}>
+          <div className={Style.driverItem}>
+            <div className={Style.editFormWrapper}>
               <input type='text' value={driverName} onChange={(e) => setDriverName(e.target.value)} />
               <input type='number' value={racesWon} onChange={(e) => setRacesWon(Number(e.target.value))} />
               <input type='text' value={favTrack} onChange={(e) => setFavTrack(e.target.value)} />
