@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { formatDistanceToNow } from 'date-fns';
 import axios from 'axios';
 
 import { Driver } from '../CreateDriver/Create';
@@ -41,7 +40,7 @@ export const DisplayAndEditCard = () => {
         favTrack,
         teamName,
         photoURL,
-        createdAt: data[0].createdAt,
+        createdAt: data![0].createdAt,
       });
     },
     onSuccess: () => {
@@ -95,7 +94,7 @@ export const DisplayAndEditCard = () => {
               <h3 className={Style.heading2}>{data[0].teamName}</h3>
               <hr />
               <h2 className={Style.heading3}>Joined the Site</h2>
-              <p className={Style.heading2}>{formatDistanceToNow(new Date(data[0].createdAt))} ago</p>
+              <p className={Style.heading2}>{data[0].createdAt}</p>
             </div>
             <div className={Style.buttonWrapper}>
               <button onClick={() => setDriver(data[0])}>Edit</button>
@@ -121,52 +120,3 @@ export const DisplayAndEditCard = () => {
     </div>
   );
 };
-
-/*
-
-  const clearEditForm = () => {
-    setEditID(null);
-    setDriverName('');
-    setRacesWon(0);
-    setFavTrack('');
-    setTeamName('');
-    setPhotoUrl('');
-  };
-
-  const editDriver = () => {
-    if (selectedDriver) {
-      axios
-        .put(`http://localhost:3002/drivers/${editID}`, {
-          driverName,
-          racesWon,
-          favTrack,
-          teamName,
-          photoURL,
-          createdAt: selectedDriver?.createdAt,
-        })
-        .then(() => {
-          setApiData((prevData) => {
-            const updatedData = prevData.map((driver) =>
-              driver.id === editID ? { ...driver, driverName, racesWon, favTrack, teamName, photoURL } : driver
-            );
-            return updatedData;
-          });
-          clearEditForm();
-        });
-    }
-  };
-
-
-
-
-          {editID === selectedDriver?.id && (
-            <div className='edit-form__wrapper'>
-              <input type='text' value={driverName} onChange={(e) => setDriverName(e.target.value)} />
-              <input type='number' value={racesWon} onChange={(e) => setRacesWon(Number(e.target.value))} />
-              <input type='text' value={favTrack} onChange={(e) => setFavTrack(e.target.value)} />
-              <input type='text' value={teamName} onChange={(e) => setTeamName(e.target.value)} />
-              <input type='text' value={photoURL} onChange={(e) => setPhotoUrl(e.target.value)} />
-              <button onClick={editDriver}>Save</button>
-            </div>
-          )}
-*/
